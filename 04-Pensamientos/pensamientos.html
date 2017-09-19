@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejemplo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../04-Pensamientos/js/app.js"></script>
+        <script src="../04-Pensamientos/js/pensadorController.js"></script>
+    </head>
+    <body ng-app="pensamiento" ng-controller="PensadorController as vm">
+        <form>
+            <p>
+                <label for="inputName">Introduzca su nombre</label>
+                <input id='inputName' type="text" ng-model="vm.nombre"></input>
+            </p>
+            <p>
+                <label for="inputName">Comparta una idea</label>
+                <input id='inputName' type="text" ng-model="vm.nuevoPensamiento"></input>
+            </p>
+            <p>
+                <button ng-click="vm.aniadir()">Añadir</button>
+            </p>
+        </form>
+        <p>
+            Hola {{vm.nombre}}
+        <ul>
+            <li ng-repeat="ideas in vm.arrayPensamientos track by $index">
+                Idea {{$index+1}} : {{ideas}}
+            </li>
+           </ul>
+     </p>
+     <ng-include src="'./common/pie.html'"></ng-include>
+    </body>
+</html>
