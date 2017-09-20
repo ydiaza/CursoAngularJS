@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Directivas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../09- directiva/js/appModule.js"></script>
+        <script src="../09- directiva/js/appController.js"></script>
+        <script src="../common/commonModule.js"></script>
+        <script src="../common/appDirectivas.js"></script>
+        
+    </head>
+    <body data-ng-app="appModule" data-ng-controller="AppController as vm">
+        <header>
+        <h1>Directivas</h1>    
+        </header>
+        <article>
+           <h2>...</h2>
+           <p>...</b></p>
+        </article>
+        
+        <p id="div1"></p>
+        <p id="div2"></p>
+        <div data-app-pie></div>
+        
+        <app-pie autor="Yéssica Díaz"></app-pie>
+    </body>
+
+    <script>
+        var oElement = document.querySelector('#div1')
+        oElement.innerHTML="<ul><li>Hola desde JavaScript</li></ul>";//# indica que el selector es un id, cuyo valor es div1
+ 
+        var oElementJQ = $('#div2')
+        oElementJQ.html("<ul><li>Hola desde JQuery</li></ul>")
+        console.dir(oElement)
+        console.dir(oElementJQ)
+    </script>
+</html>
