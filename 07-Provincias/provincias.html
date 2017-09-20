@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejemplo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../07-Provincias/js/app.js"></script>
+        <script src="../07-Provincias/js/provinciasController.js"></script>
+        <script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src ="../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+        
+    </head>
+    <body ng-app="provincias" ng-controller="ProvinciasController as vm">
+        <form>
+            <p>
+                <input id="imprimir" type="checkbox" ng-model="vm.imprimir"
+                    ng-change="vm.avisarPrint()">
+                <label>Imprimir Resultado</label>
+            </p>
+            <p>
+                    <input id="tono" type="checkbox" ng-model="vm.tonoClaro" 
+                    ng-true-value=("claro") ng-false-value=("oscuro")>
+                    <label>Tono Claro</label>
+                </p>    
+            <p>
+                <label for="select">Provincia</label>
+                <select id="select" ng-model="vm.provseleccionada"
+                    ng-options="provincia as provincia.nombre for provincia in vm.aProvincias track by provincia.idProvincia">
+                    <option value="">--Elige opción--</option>
+                  </select>
+            </p>
+    
+        </form>
+        <article>
+            <p>Provincia elegida: {{vm.provseleccionada.nombre}}</p>
+            <p>Imprimir Resultado: {{vm.imprimir}}</p>
+            <p>Tono claro seleccionado: {{vm.tonoClaro}}</p>
+        </article>
+     <ng-include src="'/07-Provincias/common/pie.html'"></ng-include>
+    </body>
+</html>

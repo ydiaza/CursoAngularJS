@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejemplo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../06-ListaAutores/js/app.js"></script>
+        <script src="../06-ListaAutores/js/listaAutoresController.js"></script>
+        <script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src ="../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+        
+    </head>
+    <body ng-app="autores" ng-controller="ListaAutoresController as vm">
+        <form>
+            <p>
+                <label>Elije el orden que deseas</label>
+               <!-- <input id='inputName' type="options" ng-model="vm.nombre"></input>-->
+                <select ng-model="vm.orden">
+                    <option value=""></option>
+                    <option value="uno">Uno</option>
+                    <option value="dos">Dos</option>
+                    <option value="tres">Tres</option>
+                    <option value="cuatro">Cuatro</option>
+                  </select>
+            </p>
+            <p>
+                <label>Elije género literario que deseas</label>
+                <!-- <input id='inputName' type="options" ng-model="vm.nombre"></input>-->
+                 <select ng-model="vm.genero">
+                     <option value="todos">todos</option>                       
+                     <option value="policiaco">Policiaco</option>
+                     <option value="ciencia">Ciencia</option>
+                     <option value="fantastico">Fantástico</option>
+                   </select>
+            </p>
+            <p>
+                Campos a mostrar <br>
+                <label>País</label> <input id='inputName' type="checkbox" ng-model="vm.verPais"></input>
+              <!--  <button ng-click="vm.aniadir()">Añadir</button>-->
+            </p>
+            <p>
+                <label>Fecha de nacimiento </label><input id='inputName' type="checkbox" ng-model="vm.verFecha"></input>
+                </p>
+    
+        </form>
+        <article>
+        <ul>
+            <li ng-repeat="oAutor in vm.aAutores |filter: vm.genero | orderBy: vm.orden">
+                {{oAutor.nombre}}{{oAutor.apellido}}
+                {{oAutor.fechaNacimiento}}
+            </li>
+           </ul>
+        </article>
+     <ng-include src="'/06-ListaAutores/common/pie.html'"></ng-include>
+    </body>
+</html>

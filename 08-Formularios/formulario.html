@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejemplo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../08-Formularios/js/app.js"></script>
+        <script src="../08-Formularios/js/formularioController.js"></script>
+        <script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src ="../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+        
+    </head>
+    <body ng-app="formulario" ng-controller="FormularioController as vm">
+        <form name="myform" novalidate>
+            <p>
+                <label>Nombre</label>
+                <input type="text" id="nombre" name="nombre"
+                ng-model="user.nombre" ng-required="true" ng-minlength="2" ng-model-options=" {updateOn: 'blur'}" >
+               <p> <span class="error-message" ng-show="myform.nombre.$dirty && myform.nombre.$error.required"> El nombre es obligatorio</span></p>
+                <p><span class="error-message" ng-show="myform.nombre.$dirty && myform.nombre.$error.minlength<2"> Debe tener mínimo 2 caracteresS</span></p>
+                
+            </p>
+    
+        </form>
+        <article>
+        </article>
+     <ng-include src="'/08-Formularios/common/pie.html'"></ng-include>
+    </body>
+</html>
